@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: uzumaki <uzumaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 13:04:20 by mvoskany          #+#    #+#             */
-/*   Updated: 2026/02/15 18:28:06 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/02/15 23:40:16 by uzumaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,28 +69,25 @@ static size_t	count_end(char const *s1, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimmed;
-	size_t	len;
 	size_t	i;
-	size_t	start_count;
-	size_t	end_count;
-	size_t	trimmed_len;
+	t_size	s;
 
 	if (!s1 || !set)
 		return (NULL);
-	len = ft_strlen(s1);
-	start_count = count_start(s1, set);
-	end_count = count_end(s1, set);
-	if (start_count + end_count >= len)
-		trimmed_len = 0;
+	s.len = ft_strlen(s1);
+	s.start_count = count_start(s1, set);
+	s.end_count = count_end(s1, set);
+	if (s.start_count + s.end_count >= s.len)
+		s.trimmed_len = 0;
 	else
-		trimmed_len = len - (start_count + end_count);
-	trimmed = malloc(trimmed_len + 1);
+		s.trimmed_len = s.len - (s.start_count + s.end_count);
+	trimmed = malloc(s.trimmed_len + 1);
 	if (!trimmed)
 		return (NULL);
 	i = 0;
-	while (i < trimmed_len)
+	while (i < s.trimmed_len)
 	{
-		trimmed[i] = s1[start_count + i];
+		trimmed[i] = s1[s.start_count + i];
 		i++;
 	}
 	trimmed[i] = '\0';

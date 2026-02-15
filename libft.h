@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: uzumaki <uzumaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 18:06:03 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/02/15 15:06:16 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/02/15 23:40:13 by uzumaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ typedef struct s_val
 	size_t			w_count;
 
 }					t_val;
+
+typedef struct s_size
+{
+	size_t			len;
+	size_t			start_count;
+	size_t			end_count;
+	size_t			trimmed_len;
+}					t_size;
 
 typedef struct s_list
 {
