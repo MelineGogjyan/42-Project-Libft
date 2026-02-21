@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/14 21:45:26 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/02/17 19:33:26 by mgogjyan         ###   ########.fr       */
+/*   Created: 2026/02/17 14:37:35 by mvoskany          #+#    #+#             */
+/*   Updated: 2026/02/17 19:40:19 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	unsigned int	i;
-
-	if (!s || !f)
+	if (!new)
 		return ;
-	i = 0;
-	while (s[i])
-	{
-		f(i, &s[i]);
-		i++;
-	}
+	new->next = *lst;
+	*lst = new;
 }
-// void	foo(unsigned int i, char *c)
-// {
-// 	if (i % 2 == 0)
-// 		*c = *c + 32;
-// }
 /*
-int	main(void)
-{
-	char	res[] = "HELLO WORLD";
+int	main(void){
+	int x = 7;
+	int y = 8;
+	int *p1 = &x;
+	int *p2 = &y;
 
-	printf("Before -> %s\n", res);
-	ft_striteri(res, foo);
-	printf("After -> %s\n", res);
-	return (0);
-}*/
+	t_list *head = ft_lstnew(p2);
+	t_list *node = ft_lstnew(p1);
+	head->next = node;
+	t_list *newhead = ft_lstnew(p1);
+	t_list **skizb = &head;
+	ft_lstadd_front(skizb, newhead);
+	printf("%d\n", *(int *)((*skizb)->content));
+
+	free(node);
+	free(newhead);
+}
+*/

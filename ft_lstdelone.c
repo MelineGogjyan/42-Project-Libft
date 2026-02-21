@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/14 21:45:26 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/02/17 19:33:26 by mgogjyan         ###   ########.fr       */
+/*   Created: 2026/02/18 16:03:14 by mvoskany          #+#    #+#             */
+/*   Updated: 2026/02/18 19:52:28 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	unsigned int	i;
-
-	if (!s || !f)
+	if (!lst || !del)
 		return ;
-	i = 0;
-	while (s[i])
-	{
-		f(i, &s[i]);
-		i++;
-	}
+	del(lst->content);
+	free(lst);
 }
-// void	foo(unsigned int i, char *c)
-// {
-// 	if (i % 2 == 0)
-// 		*c = *c + 32;
-// }
+
 /*
+void	del(void *s)
+{
+	free(s);
+}
 int	main(void)
 {
-	char	res[] = "HELLO WORLD";
+	char	*s1;
+	char	*s2;
+	t_list	*head;
+	t_list	*node;
 
-	printf("Before -> %s\n", res);
-	ft_striteri(res, foo);
-	printf("After -> %s\n", res);
+	s1 = ft_strdup("olaa");
+	s2 = ft_strdup("amigosssss");
+	head = ft_lstnew(s1);
+	node = ft_lstnew(s2);
+	ft_lstadd_back(&head, node);
+	head->next = NULL;
+	ft_lstdelone(node, del);
+	if (ft_lstlast(head) == head)
+		printf("yeeee");
 	return (0);
-}*/
+}
+*/

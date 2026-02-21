@@ -1,42 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/14 21:45:26 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/02/17 19:33:26 by mgogjyan         ###   ########.fr       */
+/*   Created: 2026/02/17 16:15:11 by mvoskany          #+#    #+#             */
+/*   Updated: 2026/02/17 19:42:13 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+int	ft_lstsize(t_list *lst)
 {
-	unsigned int	i;
+	int		count;
+	t_list	*tmp;
 
-	if (!s || !f)
-		return ;
-	i = 0;
-	while (s[i])
+	if (!lst)
+		return (0);
+	tmp = lst;
+	count = 1;
+	while (tmp->next)
 	{
-		f(i, &s[i]);
-		i++;
+		count++;
+		tmp = tmp->next;
 	}
+	return (count);
 }
-// void	foo(unsigned int i, char *c)
-// {
-// 	if (i % 2 == 0)
-// 		*c = *c + 32;
-// }
 /*
 int	main(void)
 {
-	char	res[] = "HELLO WORLD";
+	t_list	*skizb;
+	t_list	*tmp;
+	int		i;
+	int		value;
+	int		*p;
 
-	printf("Before -> %s\n", res);
-	ft_striteri(res, foo);
-	printf("After -> %s\n", res);
-	return (0);
-}*/
+	skizb = NULL;
+	i = 0;
+	tmp = skizb;
+	while (i < 10)
+	{
+		value = i;
+		p = &value;
+		tmp = ft_lstnew(p);
+		ft_lstadd_front(&skizb, tmp);
+		i++;
+	}
+	printf("%d\n", ft_lstsize(skizb));
+}
+*/

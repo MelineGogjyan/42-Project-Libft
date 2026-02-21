@@ -1,42 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/14 21:45:26 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/02/17 19:33:26 by mgogjyan         ###   ########.fr       */
+/*   Created: 2026/02/18 19:10:13 by mvoskany          #+#    #+#             */
+/*   Updated: 2026/02/18 19:52:30 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	unsigned int	i;
-
-	if (!s || !f)
-		return ;
-	i = 0;
-	while (s[i])
+	while (lst)
 	{
-		f(i, &s[i]);
-		i++;
+		f(lst->content);
+		lst = lst->next;
 	}
 }
-// void	foo(unsigned int i, char *c)
-// {
-// 	if (i % 2 == 0)
-// 		*c = *c + 32;
-// }
 /*
+void	f(void *str)
+{
+	printf("%s\n", (char *)str);
+}
+
 int	main(void)
 {
-	char	res[] = "HELLO WORLD";
+	char	*s1;
+	char	*s2;
+	char	*s3;
+	t_list	*skizb;
+	t_list	*mejtex;
+	t_list	*verj;
 
-	printf("Before -> %s\n", res);
-	ft_striteri(res, foo);
-	printf("After -> %s\n", res);
-	return (0);
-}*/
+	s1 = "Naruto";
+	s2 = "Sakura";
+	s3 = "Sasuke";
+	skizb = ft_lstnew(s1);
+	mejtex = ft_lstnew(s2);
+	verj = ft_lstnew(s3);
+	skizb->next = mejtex;
+	mejtex->next = verj;
+	ft_lstiter(skizb, f);
+}
+*/
