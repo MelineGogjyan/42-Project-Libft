@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 16:55:15 by mvoskany          #+#    #+#             */
-/*   Updated: 2026/02/17 19:40:21 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/02/26 18:44:03 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ t_list	*ft_lstlast(t_list *lst)
 	if (!lst)
 		return (NULL);
 	while (tmp->next)
-	{
 		tmp = tmp->next;
-	}
 	return (tmp);
 }
 /*

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uzumaki <uzumaki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 18:06:03 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/02/21 23:07:05 by uzumaki          ###   ########.fr       */
+/*   Updated: 2026/02/25 16:23:42 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <fcntl.h>
-# include <limits.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdio.h>

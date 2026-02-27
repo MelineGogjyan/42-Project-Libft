@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uzumaki <uzumaki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 21:42:13 by mgogjyan          #+#    #+#             */
-/*   Updated: 2026/02/21 23:18:09 by uzumaki          ###   ########.fr       */
+/*   Updated: 2026/02/25 17:14:14 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static int	num_len(int n)
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		len;
-	long	nb;
+	char		*str;
+	int			len;
+	long long	nb;
 
 	nb = n;
 	len = num_len(n);
@@ -39,20 +39,17 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
-	if (nb == 0)
-	{
-		str[0] = '0';
-	}
 	if (nb < 0)
 	{
 		str[0] = '-';
 		nb = -nb;
 	}
-	while (nb > 0)
+	while (nb > 9)
 	{
 		str[--len] = (nb % 10) + '0';
 		nb = nb / 10;
 	}
+	str[--len] = nb + '0';
 	return (str);
 }
 /*

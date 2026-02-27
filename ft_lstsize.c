@@ -6,7 +6,7 @@
 /*   By: mgogjyan <mgogjyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 16:15:11 by mvoskany          #+#    #+#             */
-/*   Updated: 2026/02/17 19:42:13 by mgogjyan         ###   ########.fr       */
+/*   Updated: 2026/02/26 18:44:00 by mgogjyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int		count;
-	t_list	*tmp;
+	int	count;
 
-	if (!lst)
-		return (0);
-	tmp = lst;
-	count = 1;
-	while (tmp->next)
+	count = 0;
+	while (lst)
 	{
 		count++;
-		tmp = tmp->next;
+		lst = lst->next;
 	}
 	return (count);
 }
