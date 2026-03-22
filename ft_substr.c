@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mvoskany <mvoskany@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/14 11:34:40 by mvoskany          #+#    #+#             */
-/*   Updated: 2026/02/14 12:36:18 by mvoskany         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -42,11 +30,12 @@ int	main(void)
 {
 	char	*a;
 	char	*c;
+	char	*b;
 
 	a = ft_substr("hello", 1, 3);
 	printf("%s\n", a);
 	free(a);
-	char *b = ft_substr("hi", 10, 5);
+	b = ft_substr("hi", 10, 5);
 	printf("%s\n", b ? b : "NULL");
 	free(b);
 	c = ft_substr(NULL, 0, 3);
